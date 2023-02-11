@@ -1,0 +1,5 @@
+#!/bin/bash
+
+W=$(which woxi.py)
+
+$W $@ | jq
