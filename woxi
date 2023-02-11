@@ -2,4 +2,8 @@
 
 W=$(which woxi.py)
 
-$W $@ | jq
+if [ -n "${W}" ]; then
+  $W $@ | jq
+else
+  printf "Couldn't find woxi.py"
+fi
