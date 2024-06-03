@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 
-from bs4 import BeautifulSoup
-import requests
 import re
-import sys
 import os
+import sys
 import json
+
+import requests
+from bs4 import BeautifulSoup
+from pygments import highlight
+from pygments.lexers import JsonLexer
+from pygments.formatters import TerminalFormatter
 
 def main(query='hallo'):
     template_url = 'https://synonyme.woxikon.de/synonyme/%s.php'
@@ -46,7 +50,7 @@ def main(query='hallo'):
 
     card_list = card_list[::-1]
     out = json.dumps(card_list, indent=2, ensure_ascii=False)
-    print(out)
+    print(highlight(out, JsonLexer(), TerminalFormatter(style='monokai')))
 
 
 if __name__ == '__main__':
