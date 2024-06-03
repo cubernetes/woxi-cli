@@ -3,7 +3,7 @@
 W=$(which woxi.py)
 
 if [ -n "${W}" ]; then
-  $W $@ | jq
+  $W "$@" | jq
 else
   printf "Couldn't find woxi.py"
 fi
